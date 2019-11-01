@@ -16,17 +16,20 @@ Go code!
 const express = require("express");
 const server = express();
 projectRouter = require('./routers/projectRouter');
+actionRouter = require('./routers/actionRouter.js')
 
 
 server.use(express.json());
 
 server.use('/api/projects', projectRouter)
+server.use("/api/actions", actionRouter);
+
 
 server.get('/', (req, res) => {
-    res.send("server is working for boii")
+    res.send("you doubt me? of cours da server is working boii")
 })
 const port = 9000;
 
 server.listen(port, () => {
-  console.log(`\n*** === Server Running on http://localhost:${port} ====***\n`);
+  console.log(`\n*** === Server Running on port 9000 ====***\n`);
 });
